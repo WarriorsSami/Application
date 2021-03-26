@@ -158,9 +158,10 @@ class Profile extends React.Component {
                           authenticationService.update(firstname, lastname, username, email, password)
                               .then(
                                   user => {
-                                    const {from} = this.props.location.state || {from: {pathname: "/"}};
+                                    const {from} = this.props.location.state || {from: {pathname: "/admin/user-profile"}};
                                     this.props.history.push(from);
                                     window.location.reload(true);
+                                    console.log(1)
                                   },
                                   error => {
                                     setSubmitting(false);
