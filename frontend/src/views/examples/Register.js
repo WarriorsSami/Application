@@ -32,7 +32,8 @@ class Register extends React.Component {
                                     firstname: Yup.string().required('First  name is required'),
                                     lastname: Yup.string().required('Last name is required'),
                                     username: Yup.string().required('User name is required'),
-                                    password: Yup.string().required('Password is required')
+                                    password: Yup.string().required('Password is required'),
+                                    email:  Yup.string().required('Email is required')
                                 })}
 
                                 onSubmit={({firstname, lastname, username, email, password}, {setStatus, setSubmitting}) => {
@@ -53,6 +54,7 @@ class Register extends React.Component {
 
                                 render={({errors, status, touched, isSubmitting}) => (
                                     <Form>
+
                                         <div className="form-group">
                                             <label htmlFor="firstname">First Name</label>
                                             <Field name="firstname" type="text"
@@ -73,12 +75,14 @@ class Register extends React.Component {
                                                    className={'form-control' + (errors.username && touched.username ? ' is-invalid' : '')}/>
                                             <ErrorMessage name="username" component="div" className="invalid-feedback"/>
                                         </div>
+
                                         <div className="form-group">
                                             <label htmlFor="email">Email</label>
                                             <Field name="email" type="email"
                                                    className={'form-control' + (errors.email && touched.email ? ' is-invalid' : '')}/>
                                             <ErrorMessage name="email" component="div" className="invalid-feedback"/>
                                         </div>
+
                                         <div className="form-group">
                                             <label htmlFor="password">Password</label>
                                             <Field name="password" type="password"
